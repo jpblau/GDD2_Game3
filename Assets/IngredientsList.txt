@@ -1,0 +1,7 @@
+strawberry-fruit berry
+blueberry-fruit berry
+raspberry-fruit berry
+orange-fruit
+spinach-vegetable leaf green
+kale-vegetable leaf green
+cinnamon-spice
