@@ -161,7 +161,6 @@ public class RecipeGenerator : MonoBehaviour
 
     /// <summary>
     /// This function checks to see if the number of chosen ingredients is equal to the number of total ingredients in the recipe
-    /// if this is the case, then let's score this recipe and begin a new one
     /// </summary>
     /// <returns></returns>
     public bool CheckRecipeCompletion()
@@ -174,9 +173,6 @@ public class RecipeGenerator : MonoBehaviour
 
         // Calculate this Recipe's score and add it to our final score
         SS.AddScore(generatedRecipe, chosenIngredients);
-
-        // Then, begin another recipe
-        //TODO this!
 
         return enoughIngredients;
     }

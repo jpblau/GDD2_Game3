@@ -13,6 +13,9 @@ public class UIManager : MonoBehaviour
     public GameObject confirmScreenToChef;  // The button that thakes the player to the Chef's view. Corresponds to 0
     public GameObject confirmScreenToApprentice;    // The button that takes the player to the Apprentice's view. Corresponds to 1
 
+    //public Canvas timerCanvas;  //The canvas containing our timer, only present while the round is active
+    public Text timerText;  // The text in the timerCanvas that actually displays the time remaining
+
     private RecipeGenerator RG;
 
     // Start is called before the first frame update
@@ -78,6 +81,7 @@ public class UIManager : MonoBehaviour
         if (RG.CheckRecipeCompletion())
         {
             SetConfirmScreenButton(0);
+            GenerateAndSetNewRecipe(); // Let's also begin a new recipe here!
         }
     }
 
@@ -102,5 +106,20 @@ public class UIManager : MonoBehaviour
                 confirmScreenText.text = "Pass to Next Fledgling";
                 break;
         }
+    }
+
+    /// <summary>
+    /// Updates the timer with the current time
+    /// </summary>
+    /// <param name="timeRemaining"></param>
+    public void UpdateTimer(float timeRemaining)
+    {
+        // Convert the float into minutes and seconds
+        string digitalView = "";
+        int minutes = (int)Mathf.Floor(timeRemaining / 60.0f);
+        int seconds = (int)(timeRemaining - (minutes * 60.0f));
+        digitalView = minutes.ToString() + ":" + seconds.ToString();
+
+        timerText.text = digitalView;
     }
 }
