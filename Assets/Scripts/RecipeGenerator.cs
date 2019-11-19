@@ -102,17 +102,19 @@ public class RecipeGenerator : MonoBehaviour
             //////////////////////
 
             //If the new ingredient has a matching attribute, and it has already not been selected, add it to the list
-            for (int i = 0; i < newAttributes.Count(); i++)
-            {
-                if (/*attributes.Contains(newAttributes[i]) && */ ingredients.Contains(newIngredient) == false)
-                {
-                    if ((generatedRecipe.Contains(newIngredient) && chosenIngredients.Contains(newIngredient)) == false)
-                    {
-                        ingredients.Add(newIngredient);
-                        break;
-                    }
-                }
-            }
+            //for (int i = 0; i < newAttributes.Count(); i++)
+            //{
+            //    if (/*attributes.Contains(newAttributes[i]) && */ ingredients.Contains(newIngredient) == false)
+            //    {
+            //        if ((generatedRecipe.Contains(newIngredient) && chosenIngredients.Contains(newIngredient)) == false)
+            //        {
+            //            ingredients.Add(newIngredient);
+            //            break;
+            //        }
+            //    }
+            //}
+
+            ingredients.Add(newIngredient);
         }
 
         return ingredients;
