@@ -22,10 +22,12 @@ public class Timer : MonoBehaviour
     {
         if (timerEnabled)
         {
-            timeRemaining -= Time.deltaTime;
+            
+            timeRemaining -= Time.deltaTime * 10;
             Mathf.Clamp(timeRemaining, minTime, maxTime);
             // Update our UI as well
             UIM.UpdateTimer(timeRemaining);
+            IsTimeOver();
         }
     }
 
@@ -37,5 +39,20 @@ public class Timer : MonoBehaviour
     public void SetTimerEnabled(bool value)
     {
         timerEnabled = value;
+    }
+
+    /// <summary>
+    /// Checks to see if the timer is currently less than 0 seconds left. If so, 
+    /// let's stop counting down, reset our timer, and tell the UIM to present the score screen
+    /// </summary>
+    public void IsTimeOver()
+    {
+        // First, let's check to see if the timer has hit 0
+        if (timeRemaining <= 0.0f)
+        {
+            SetTimerEnabled(false);
+            ResetTimer();
+            UIM.GameOver();
+        }
     }
 }

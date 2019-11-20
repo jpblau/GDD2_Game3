@@ -173,9 +173,18 @@ public class RecipeGenerator : MonoBehaviour
             enoughIngredients = true;
         }
 
-        // Calculate this Recipe's score and add it to our final score
-        SS.AddScore(generatedRecipe, chosenIngredients);
+        if (enoughIngredients)
+        {
+            // Calculate this Recipe's score and add it to our final score
+            SS.AddScore(generatedRecipe, chosenIngredients, generatedRecipeName);
+        }
+
 
         return enoughIngredients;
+    }
+
+    public void AddIncompleteRecipeToScore()
+    {
+        SS.AddScore(generatedRecipe, chosenIngredients, generatedRecipeName);
     }
 }

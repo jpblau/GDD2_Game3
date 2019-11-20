@@ -13,6 +13,11 @@ public class UIManager : MonoBehaviour
     public GameObject confirmScreenToChef;  // The button that thakes the player to the Chef's view. Corresponds to 0
     public GameObject confirmScreenToApprentice;    // The button that takes the player to the Apprentice's view. Corresponds to 1
 
+    public Canvas scoreScreen;  // The score screen canvas needs to be enabled by code
+    public List<Text> scoredJuicesList; // The list of juices players completed or started working on. Presented on the score screen
+    public List<Text> scoredJuicesScoreList;   // The list of juice scores for each juice players completed or started working on. Presented on the score screen
+    public ScoreScript SS;
+
     //public Canvas timerCanvas;  //The canvas containing our timer, only present while the round is active
     public Text timerText;  // The text in the timerCanvas that actually displays the time remaining
 
@@ -114,6 +119,7 @@ public class UIManager : MonoBehaviour
     /// <param name="timeRemaining"></param>
     public void UpdateTimer(float timeRemaining)
     {
+
         // Convert the float into minutes and seconds
         string digitalView = "";
         int minutes = (int)Mathf.Floor(timeRemaining / 60.0f);
@@ -121,5 +127,38 @@ public class UIManager : MonoBehaviour
         digitalView = minutes.ToString() + ":" + seconds.ToString();
 
         timerText.text = digitalView;
+    }
+
+    /// <summary>
+    /// Called when the game reaches 0 on its timer
+    /// </summary>
+    public void GameOver()
+    {
+        RG.AddIncompleteRecipeToScore();    // Add the score from our incomplete juice
+
+        // Update the score screen with all the correct juice names
+        for (int i = 0; i < SS.juiceNames.Count; i++)
+        {
+            scoredJuicesList[i].text = SS.juiceNames[i];
+            scoredJuicesScoreList[i].text = SS.juiceScores[i].ToString();
+        }
+
+        // Enable the score screen
+        scoreScreen.enabled = true;
+    }
+
+    /// <summary>
+    /// Reset the entire canvas back to the main menu, with only the main menu active. Called 
+    /// At the end of the score screen.
+    /// </summary>
+    public void ResetToMainMenu()
+    {
+        SS.ResetJuices();
+
+        Canvas[] toDeactivate = this.gameObject.GetComponentsInChildren<Canvas>();
+        for (int i = 2; i < toDeactivate.Length; i++)
+        {
+            toDeactivate[i].enabled = false;
+        }
     }
 }

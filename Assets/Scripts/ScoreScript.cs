@@ -7,6 +7,8 @@ public class ScoreScript : MonoBehaviour
     public int totalScore;
 
     private int pointsCorrectIngredient;
+    public List<string> juiceNames;    // The names of each juice the player works on
+    public List<int> juiceScores;  // The score associated with each juice the player works on
 
     // Start is called before the first frame update
     void Start()
@@ -26,13 +28,19 @@ public class ScoreScript : MonoBehaviour
     /// </summary>
     /// <param name="recipe"></param>
     /// <param name="chosen"></param>
-    public void AddScore(List<string> recipe, List<string> chosen)
+    public void AddScore(List<string> recipe, List<string> chosen, string nameOfRecipe)
     {
+
+        int addedScore = 0;
         for (int i = 0; i < recipe.Count; i++)
         {
             if (chosen.Contains(recipe[i]))
-                totalScore += pointsCorrectIngredient;
+                addedScore += pointsCorrectIngredient;
         }
+
+        juiceNames.Add(nameOfRecipe);
+        juiceScores.Add(addedScore);
+        totalScore += addedScore;
     }
 
 
@@ -43,5 +51,11 @@ public class ScoreScript : MonoBehaviour
     public int GetTotalScore()
     {
         return totalScore;
+    }
+
+    public void ResetJuices()
+    {
+        juiceNames = new List<string>();
+        juiceScores = new List<int>();
     }
 }
