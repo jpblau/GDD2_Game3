@@ -23,6 +23,8 @@ public class UIManager : MonoBehaviour
 
     private RecipeGenerator RG;
 
+    private int numberOfPlayers = 4;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +45,7 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void GenerateAndSetNewRecipe()
     {
-        List<string> recipe = RG.GenerateRecipe();
+        List<string> recipe = RG.GenerateRecipe(numberOfPlayers);
 
         int x = 0;
         foreach (string ingredient in recipe)
@@ -160,5 +162,10 @@ public class UIManager : MonoBehaviour
         {
             toDeactivate[i].enabled = false;
         }
+    }
+
+    public void SetNumOfPlayers(int count)
+    {
+        numberOfPlayers = count;
     }
 }

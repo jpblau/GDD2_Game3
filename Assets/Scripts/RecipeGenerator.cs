@@ -24,13 +24,11 @@ public class RecipeGenerator : MonoBehaviour
 
         //testing both methods
         ReadIngredients();
-        GenerateRecipe();
+        /*GenerateRecipe();
         foreach (string s in GenerateIngredientList())
         {
             Debug.Log(s);
-        }
-
-        
+        }*/
     }
 
     // Update is called once per frame
@@ -47,10 +45,12 @@ public class RecipeGenerator : MonoBehaviour
     /// Hard = 7 Items (+1 item for every player over 7, up to a max of 8)
     /// </summary>
     /// <returns>List<string> of ingredients in the recipe</returns>
-    public List<string> GenerateRecipe()
+    public List<string> GenerateRecipe(int count)
     {
+        generatedRecipe.Clear();
+        chosenIngredients.Clear();
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < count; i++)
         {
             generatedRecipe.Add(ingredientList[Random.Range(0, ingredientCount)].Split('-')[0]);
             
@@ -77,7 +77,9 @@ public class RecipeGenerator : MonoBehaviour
         //Get the list of attributes associated with the chosen ingredient
         string[] attributes = ingredientList[index].Split('-')[1].Split(' ');
 
-        while(ingredients.Count < 4)
+        int count = 0;
+
+        while(ingredients.Count < 4 && count < 200)
         {
             int newIndex = Random.Range(0, ingredientCount);
 
@@ -114,6 +116,7 @@ public class RecipeGenerator : MonoBehaviour
             //    }
             //}
 
+            count++;
             ingredients.Add(newIngredient);
         }
 
