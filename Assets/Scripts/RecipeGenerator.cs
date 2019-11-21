@@ -22,13 +22,7 @@ public class RecipeGenerator : MonoBehaviour
         generatedRecipe = new List<string>();
         chosenIngredients = new List<string>();
 
-        //testing both methods
         ReadIngredients();
-        /*GenerateRecipe();
-        foreach (string s in GenerateIngredientList())
-        {
-            Debug.Log(s);
-        }*/
     }
 
     // Update is called once per frame
