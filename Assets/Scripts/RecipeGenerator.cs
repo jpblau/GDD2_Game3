@@ -29,12 +29,6 @@ public class RecipeGenerator : MonoBehaviour
 
         ReadIngredients();
 
-        GenerateRecipe();
-        foreach (string s in GenerateIngredientList())
-        {
-            Debug.Log(s);
-        }
-
         ReadNameBank();
 
         GenerateRecipeName();
