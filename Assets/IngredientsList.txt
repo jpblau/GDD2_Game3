@@ -1,7 +1,38 @@
-strawberry-fruit berry
-blueberry-fruit berry
-raspberry-fruit berry
-orange-fruit
-spinach-vegetable leaf green
-kale-vegetable leaf green
-cinnamon-spice
+Pineapple-colory fruit f3d443
+Peach-coloro fruit f9a07d
+Mango-colory fruit fdcd01
+Apple-colorg fruit fec54b 
+Banana-colory fruit ffe200
+Pear-colorg fruit ffbe57
+Avacado-colorg fruit bad433
+Watermelon-colorbivr smolseed e50000
+Blueberry-colorbivr smolseed 0b1f7c
+Strawberry-colorbivr smolseed ec1c00
+Raspberry-colorbivr smolseed c31700
+Blackberry-colorbivr smolseed 08104a
+Lemon-colory fruit f6ec3b
+Lime-colorg fruit faedb9
+Zuchini-colorg vegies bbd931
+Pumpkin-coloro vegies ea7f14
+Kale-colorg vegies 145206
+Spinach-colorg vegies 207a0b
+Orange Juice-coloro others efa026
+Lemonade-colory others f6ec3b
+Soy Milk-colormisc others f2e5bc
+Milk-colormisc others f7f0f0
+Peanut Butter-coloro others b98553
+Chocolate-colormisc others 9b5a3a
+Honey-colory others ffca63
+Yogurt-colormisc others fcf6de
+Kiwi-colorg fruit d3e7c1
+Coconut-colormisc fruit 965a3e
+Elderberry-colorbivr smolseed 17182b 
+Sweet Potato-coloro vegies e07d36 
+Carrot-coloro vegetables ed9121
+Ginger-colory vegies bf830b
+Beetroot-colorr vegies 954c67
+Cauliflower-colormisc vegies f4f3e2
+Squash-coloro vegies ffcb33
+Apple Juice-coloro others e0b246 
+Cinnamon-colormisc extras 652a0e
+Crack-colormisc others faf4e3
