@@ -4975,10 +4975,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1265, y: 1144}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -5043,6 +5043,38 @@ MonoBehaviour:
   - {fileID: 5344470572862827258}
   SS: {fileID: 7076829087270914017}
   timerText: {fileID: 5974764002534875240}
+  ingredientSprites:
+  - {fileID: 21300000, guid: e866002bcf1299d49811cccee8108acc, type: 3}
+  - {fileID: 21300000, guid: bc29660d9f3fe5a47b1da296451ca23c, type: 3}
+  - {fileID: 21300000, guid: cc7b2aa72150aec49bc35ec5ec513b9d, type: 3}
+  - {fileID: 21300000, guid: 6c1ca8b7cf697d74d9d2f24f2b7e985e, type: 3}
+  - {fileID: 21300000, guid: 501587f08a2f00142a5176d95b060d98, type: 3}
+  - {fileID: 21300000, guid: dafb60c9188a49d4284f05f9eb9eed19, type: 3}
+  - {fileID: 21300000, guid: ffe2135adcc5eed4194844b5e3893e00, type: 3}
+  - {fileID: 21300000, guid: 16861384cc068f04e901c1d7bc143ec0, type: 3}
+  - {fileID: 21300000, guid: 90b5b329b1f7aba4888829df5b717075, type: 3}
+  - {fileID: 21300000, guid: 7e912e5231bae9549ad62c32a624c3b7, type: 3}
+  - {fileID: 21300000, guid: b7c8fbed194a7ba48bb10072b237c61a, type: 3}
+  - {fileID: 21300000, guid: 0adf582f6cb71864a86713c46cb690d0, type: 3}
+  - {fileID: 21300000, guid: 10315bd7cd9046243bf82f909fb3f242, type: 3}
+  - {fileID: 21300000, guid: 9ceb80cf668cf1f4b96f7514f3939447, type: 3}
+  - {fileID: 21300000, guid: da0cc991414b58247a634888742b829a, type: 3}
+  - {fileID: 21300000, guid: a354a303fd73f7b4a922f960043546a9, type: 3}
+  - {fileID: 21300000, guid: b7bafd65dca811048956d1e89a53478b, type: 3}
+  - {fileID: 21300000, guid: 6153fd29031b5854c9970246165f9e31, type: 3}
+  - {fileID: 21300000, guid: b849bb4432b96a64dadfba1763b09b1f, type: 3}
+  - {fileID: 21300000, guid: d80255df6e45e2c458bdf1f876e043f2, type: 3}
+  - {fileID: 21300000, guid: 573452e9e4a992244addfaac6738fa72, type: 3}
+  - {fileID: 21300000, guid: bbee6aa54d774bb46ad3b3fe84dab669, type: 3}
+  - {fileID: 21300000, guid: cb4ea0a2647958e498c0d39101386413, type: 3}
+  - {fileID: 21300000, guid: a5430891c3b8d1f47b031748e586951c, type: 3}
+  - {fileID: 21300000, guid: 78fdbb2c0368d3148b858cf80441522d, type: 3}
+  - {fileID: 21300000, guid: d8511fed209cd8949ab7e7518971ae27, type: 3}
+  ingredientImageHolders:
+  - {fileID: 6511933019329675976}
+  - {fileID: 4208591394529421276}
+  - {fileID: 7444609873036017279}
+  - {fileID: 1010987124208444313}
 --- !u!114 &7076829087270914017
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -25,6 +25,9 @@ public class UIManager : MonoBehaviour
 
     private int numberOfPlayers = 4;
 
+    public List<Sprite> ingredientSprites;  // The list of sprites of different ingredients. names should correspond to the name given to each ingredient
+    public List<Image> ingredientImageHolders; // The actual 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +61,9 @@ public class UIManager : MonoBehaviour
             x++;
         }
 
+        //Set the text and the images
         recipeName.text = RG.GetCurrentRecipeName();
+        
     }
 
     /// <summary>
@@ -73,8 +78,21 @@ public class UIManager : MonoBehaviour
         foreach (string ingredient in ingredients)
         {
             apprenticeIngredientList[x].text = ingredient;
+            
+
+            //set the images. The name of the ingredient and the name of the sprite have to be identitcal
+            for (int i = 0; i < ingredientSprites.Count; i++)
+            {
+                if (ingredientSprites[i].name.Equals(ingredient))
+                {
+                    ingredientImageHolders[x].sprite = ingredientSprites[i];
+                    Debug.Log("Added Image: " + ingredientSprites[i].name.ToString());
+                }
+            }
+
             x++;
         }
+
     }
 
     /// <summary>
