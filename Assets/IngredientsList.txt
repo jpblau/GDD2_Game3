@@ -12,7 +12,7 @@ Raspberry-colorbivr smolseed c31700
 Blackberry-colorbivr smolseed 08104a
 Lemon-colory fruit f6ec3b
 Lime-colorg fruit faedb9
-Zuchini-colorg vegies bbd931
+Zucchini-colorg vegies bbd931
 Pumpkin-coloro vegies ea7f14
 Kale-colorg vegies 145206
 Spinach-colorg vegies 207a0b
