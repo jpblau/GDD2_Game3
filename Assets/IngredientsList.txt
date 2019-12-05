@@ -1,7 +1,7 @@
 Pineapple-colory fruit f3d443
 Peach-coloro fruit f9a07d
 Mango-colory fruit fdcd01
-Apple-colorg fruit fec54b 
+Apple-colorg fruit fec54b
 Banana-colory fruit ffe200
 Pear-colorg fruit ffbe57
 Avacado-colorg fruit bad433
@@ -26,13 +26,11 @@ Honey-colory others ffca63
 Yogurt-colormisc others fcf6de
 Kiwi-colorg fruit d3e7c1
 Coconut-colormisc fruit 965a3e
-Elderberry-colorbivr smolseed 17182b 
-Sweet Potato-coloro vegies e07d36 
+Elderberry-colorbivr smolseed 17182b
 Carrot-coloro vegetables ed9121
 Ginger-colory vegies bf830b
 Beetroot-colorr vegies 954c67
 Cauliflower-colormisc vegies f4f3e2
-Squash-coloro vegies ffcb33
-Apple Juice-coloro others e0b246 
+Apple Juice-coloro others e0b246
 Cinnamon-colormisc extras 652a0e
 Crack-colormisc others faf4e3
