@@ -188,9 +188,6 @@ public class RecipeGenerator : MonoBehaviour
             }
         }
 
-        Debug.Log("number" +SS.GetTotalScore());
-        Debug.Log("precent" + SS.juicePercentages[0]);
-
         int randomNum;  //Int to hold the random number generated
         if (SS.GetTotalScore() >= 66)
         {
