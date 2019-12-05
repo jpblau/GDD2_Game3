@@ -4,7 +4,7 @@ Mango-colory fruit fdcd01
 Apple-colorg fruit fec54b
 Banana-colory fruit ffe200
 Pear-colorg fruit ffbe57
-Avacado-colorg fruit bad433
+Avocado-colorg fruit bad433
 Watermelon-colorbivr smolseed e50000
 Blueberry-colorbivr smolseed 0b1f7c
 Strawberry-colorbivr smolseed ec1c00
