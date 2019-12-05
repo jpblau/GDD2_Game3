@@ -81,7 +81,15 @@ public class RecipeGenerator : MonoBehaviour
 
         //Randomly pick the first ingredient, making sure it is one of the ingredients on the recipe
         int index = Random.Range(0, ingredientCount);
-        ingredients.Add(ingredientList[index].Split('-')[0]);
+        string firstIngredient = ingredientList[index].Split('-')[0];
+
+        while (!generatedRecipe.Contains(firstIngredient))
+        {
+            index = Random.Range(0, ingredientCount);
+            firstIngredient = ingredientList[index].Split('-')[0];
+        }
+
+        ingredients.Add(firstIngredient);
 
         //Get the list of attributes associated with the chosen ingredient
         string[] attributes = ingredientList[index].Split('-')[1].Split(' ');
