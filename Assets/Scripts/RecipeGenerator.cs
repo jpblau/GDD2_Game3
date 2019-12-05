@@ -16,6 +16,7 @@ public class RecipeGenerator : MonoBehaviour
     private List<string> recipeNameBankBadWords;
     private string generatedRecipeName;     // The name of the recipe the player is creating
     private List<string> chosenIngredients; //The list of ingredients that the player has chosen in this round
+    public UIManager manageUI;  //Refrence to UI manager code to be used for the recipe name generation
 
     private string[] ingredientList;
     int ingredientCount;
@@ -187,31 +188,25 @@ public class RecipeGenerator : MonoBehaviour
             }
         }
 
-        /*Debug.Log(recipeNameBankBestWords.Count);
-        Debug.Log(recipeNameBankMiddleWords.Count);
-        Debug.Log(recipeNameBankBadWords.Count);*/
-        /*for(int i = 0; i < recipeNameBankFirstWords.Count; i++)
-        {
-            Debug.Log(recipeNameBankFirstWords[i]);
-        }*/
-        
-        //Debug.Log(recipeNameBankSecondWords.Count);
-        //recipeNameBank = recipeNameBankArray.ToList();
-        //string temp;   //hold the choosen item so it can be moved to the end of the list
-
-        /* 
-         * 
-         * Need to figure out how we are implmenting the ingredient being part of the name and how the score system is going to work
-
+        Debug.Log("number" +SS.GetTotalScore());
+        Debug.Log("precent" + SS.juicePercentages[0]);
 
         int randomNum;  //Int to hold the random number generated
-        randomNum = Random.Range(0, recipeNameBankFirstWords.Count-1);
-        generatedRecipeName += recipeNameBankFirstWords[randomNum] + " ";
-        randomNum = Random.Range(0, recipeNameBankSecondWords.Count-1);
-        generatedRecipeName += recipeNameBankSecondWords[randomNum] + " ";
-        generatedRecipeName += "Juice!";
-
-        */
+        if (SS.GetTotalScore() >= 66)
+        {
+            randomNum = Random.Range(0, recipeNameBankBestWords.Count);
+            generatedRecipeName = recipeNameBankBestWords[randomNum] + " " + manageUI.chefsRecipeList[0].text + " Juice";
+        }
+        else if(SS.GetTotalScore() >= 33)
+        {
+            randomNum = Random.Range(0, recipeNameBankMiddleWords.Count);
+            generatedRecipeName = recipeNameBankMiddleWords[randomNum] + " " + manageUI.chefsRecipeList[0].text + " Juice";
+        }
+        else
+        {
+            randomNum = Random.Range(0, recipeNameBankBadWords.Count);
+            generatedRecipeName = recipeNameBankBadWords[randomNum] + " " + manageUI.chefsRecipeList[0].text + " Juice";
+        }
 
         //generatedRecipeName = "This needs implementation";
     }
@@ -267,6 +262,7 @@ public class RecipeGenerator : MonoBehaviour
     /// <returns></returns>
     public bool CheckRecipeCompletion()
     {
+        
         bool enoughIngredients = false;
         if (chosenIngredients.Count == generatedRecipe.Count)
         {
@@ -279,12 +275,15 @@ public class RecipeGenerator : MonoBehaviour
             SS.AddScore(generatedRecipe, chosenIngredients, generatedRecipeName);
         }
 
+        GenerateRecipeName();
 
         return enoughIngredients;
     }
 
     public void AddIncompleteRecipeToScore()
     {
+        
         SS.AddScore(generatedRecipe, chosenIngredients, generatedRecipeName);
+        GenerateRecipeName();
     }
 }
