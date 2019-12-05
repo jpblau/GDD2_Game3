@@ -793,6 +793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SS: {fileID: 4428642097644368973}
+  manageUI: {fileID: 2021423350}
 --- !u!4 &1652571981
 Transform:
   m_ObjectHideFlags: 0
