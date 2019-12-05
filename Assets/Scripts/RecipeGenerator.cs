@@ -64,7 +64,7 @@ public class RecipeGenerator : MonoBehaviour
             generatedRecipe.Add(ingredientList[Random.Range(0, ingredientCount)].Split('-')[0]);
             
         }
-        Debug.Log(generatedRecipe);
+        //Debug.Log(generatedRecipe);
         return generatedRecipe;
     }
 

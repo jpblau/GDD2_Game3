@@ -26,7 +26,15 @@ public class UIManager : MonoBehaviour
     private int numberOfPlayers = 4;
 
     public List<Sprite> ingredientSprites;  // The list of sprites of different ingredients. names should correspond to the name given to each ingredient
-    public List<Image> ingredientImageHolders; // The actual 
+    public List<Image> ingredientImageHolders; // The actual holders for each image
+
+    public Sprite starSprite;   // The sprite that displays, with 1-3 stars, how well the player did
+    public List<Sprite> resultSprites;  // The gunk and smoothie result icons
+
+    public List<Image> starSpritesScoreScreen;   // The list of our star sprite lists
+    public List<Image> resultSpritesScoreScreen;    // The list of our resultSprites on the score screen
+
+    // TODO need a list of all the stars in the score screen so we can set them to active
 
     // Start is called before the first frame update
     void Start()
@@ -86,7 +94,7 @@ public class UIManager : MonoBehaviour
                 if (ingredientSprites[i].name.Equals(ingredient))
                 {
                     ingredientImageHolders[x].sprite = ingredientSprites[i];
-                    Debug.Log("Added Image: " + ingredientSprites[i].name.ToString());
+                    //Debug.Log("Added Image: " + ingredientSprites[i].name.ToString());
                 }
             }
 
@@ -163,6 +171,65 @@ public class UIManager : MonoBehaviour
             scoredJuicesScoreList[i].text = SS.juiceScores[i].ToString();
         }
 
+        //SS.juicePercentages
+
+        // Set the appropriate number of stars active
+        /*for (int i = 0; i <= 3; i++)
+        {
+            for (int k = 0; k < 3; k++)
+            {
+                if (SS.juicePercentages[i] < .33f * k)
+                {
+                    for (int m = 0; m < k; m++)
+                    {
+                        starSprites[m*i].enabled = true;
+                    }
+                    break;
+                }
+            }
+            
+        }*/
+
+        int starNum = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            for (int k = 0; k < 3; k++)
+            {
+                if (SS.juicePercentages.Count > i)
+                {
+                    Debug.Log(i);
+                    if (SS.juicePercentages[i] > .33f * k)
+                    {
+                        starSpritesScoreScreen[starNum + k].enabled = true;
+                    }
+                }
+                
+            }
+
+            starNum += 3;
+        }
+        // set the result icon
+        for (int i = 0; i < resultSpritesScoreScreen.Count; i++)
+        {
+            if (SS.juicePercentages.Count > i)
+            {
+                if (SS.juicePercentages[i] < .33f)
+                {
+                    resultSpritesScoreScreen[i].sprite = resultSprites[i];
+                }
+                else if (SS.juicePercentages[i] < .66f)
+                {
+                    resultSpritesScoreScreen[i].sprite = resultSprites[i];
+                }
+                else
+                {
+                    resultSpritesScoreScreen[i].sprite = resultSprites[i];
+                }
+
+            }
+        }
+
+
         // Enable the score screen
         scoreScreen.enabled = true;
     }
@@ -179,6 +246,12 @@ public class UIManager : MonoBehaviour
         for (int i = 2; i < toDeactivate.Length; i++)
         {
             toDeactivate[i].enabled = false;
+        }
+
+        //Reset our score screen
+        for (int i = 0; i < starSpritesScoreScreen.Count; i++)
+        {
+                starSpritesScoreScreen[i].enabled = false;
         }
     }
 
