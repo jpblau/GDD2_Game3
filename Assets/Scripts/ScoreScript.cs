@@ -9,11 +9,13 @@ public class ScoreScript : MonoBehaviour
     private int pointsCorrectIngredient;
     public List<string> juiceNames;    // The names of each juice the player works on
     public List<int> juiceScores;  // The score associated with each juice the player works on
+    public List<float> juicePercentages;    // The percentage of ingredients the user got right
 
     // Start is called before the first frame update
     void Start()
     {
         totalScore = 0;
+        pointsCorrectIngredient = 20;
     }
 
     // Update is called once per frame
@@ -41,6 +43,9 @@ public class ScoreScript : MonoBehaviour
         juiceNames.Add(nameOfRecipe);
         juiceScores.Add(addedScore);
         totalScore += addedScore;
+
+        if (recipe.Count > 0 && pointsCorrectIngredient > 0)
+        juicePercentages.Add((addedScore / pointsCorrectIngredient) / recipe.Count);
     }
 
 
@@ -57,5 +62,6 @@ public class ScoreScript : MonoBehaviour
     {
         juiceNames = new List<string>();
         juiceScores = new List<int>();
+        juicePercentages = new List<float>();
     }
 }

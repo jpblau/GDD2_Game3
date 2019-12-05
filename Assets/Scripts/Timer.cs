@@ -23,7 +23,7 @@ public class Timer : MonoBehaviour
         if (timerEnabled)
         {
             
-            timeRemaining -= Time.deltaTime;
+            timeRemaining -= Time.deltaTime * 10;
             Mathf.Clamp(timeRemaining, minTime, maxTime);
             // Update our UI as well
             UIM.UpdateTimer(timeRemaining);
