@@ -16,6 +16,8 @@ public class RecipeGenerator : MonoBehaviour
     private List<string> recipeNameBankBadWords;
     private string generatedRecipeName;     // The name of the recipe the player is creating
     private List<string> chosenIngredients; //The list of ingredients that the player has chosen in this round
+    int amountChosenCorrect = 0;    //Int used for finding percent amount of correctly chosen ingredients per recipe
+    float percentCorrect = 0;   //Float to hold the percent of chosen ingredients that are correct per recipe
 
     private string[] ingredientList;
     int ingredientCount;
@@ -187,32 +189,30 @@ public class RecipeGenerator : MonoBehaviour
             }
         }
 
-
-        float percentCorrect = 0;
-        int amountCorrect = 0;
-        for(int i = 0; i < generatedRecipe.Count; i++)
+        if (chosenIngredients.Count == generatedRecipe.Count)
         {
-            for(int x = 0; x < chosenIngredients.Count; x++)
+            percentCorrect = 0;
+            amountChosenCorrect = 0;
+            for (int i = 0; i < generatedRecipe.Count; i++)
             {
-                if(chosenIngredients[x] == generatedRecipe[i])
+                for (int x = 0; x < chosenIngredients.Count; x++)
                 {
-                    amountCorrect++;
+                    if (chosenIngredients[x] == generatedRecipe[i])
+                    {
+                        amountChosenCorrect++;
+                    }
                 }
             }
+            percentCorrect = ((float)amountChosenCorrect / (float)generatedRecipe.Count) * (float)100;
         }
-        if (chosenIngredients.Count > 0)
-        {
-            percentCorrect = (amountCorrect / chosenIngredients.Count) * 100;
-        }
-        Debug.Log("Percent" + percentCorrect);
 
         int randomNum;  //Int to hold the random number generated
-        if (percentCorrect >= 66)
+        if (percentCorrect > 66.66)
         {
             randomNum = Random.Range(0, recipeNameBankBestWords.Count);
             generatedRecipeName = recipeNameBankBestWords[randomNum] + " " + generatedRecipe[0] + " Juice";
         }
-        else if(percentCorrect >= 33)
+        else if(percentCorrect > 33.33)
         {
             randomNum = Random.Range(0, recipeNameBankMiddleWords.Count);
             generatedRecipeName = recipeNameBankMiddleWords[randomNum] + " " + generatedRecipe[0] + " Juice";
