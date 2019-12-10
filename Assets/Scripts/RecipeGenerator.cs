@@ -16,7 +16,6 @@ public class RecipeGenerator : MonoBehaviour
     private List<string> recipeNameBankBadWords;
     private string generatedRecipeName;     // The name of the recipe the player is creating
     private List<string> chosenIngredients; //The list of ingredients that the player has chosen in this round
-    public UIManager manageUI;  //Refrence to UI manager code to be used for the recipe name generation
 
     private string[] ingredientList;
     int ingredientCount;
@@ -188,21 +187,40 @@ public class RecipeGenerator : MonoBehaviour
             }
         }
 
+
+        float percentCorrect = 0;
+        int amountCorrect = 0;
+        for(int i = 0; i < generatedRecipe.Count; i++)
+        {
+            for(int x = 0; x < chosenIngredients.Count; x++)
+            {
+                if(chosenIngredients[x] == generatedRecipe[i])
+                {
+                    amountCorrect++;
+                }
+            }
+        }
+        if (chosenIngredients.Count > 0)
+        {
+            percentCorrect = (amountCorrect / chosenIngredients.Count) * 100;
+        }
+        Debug.Log("Percent" + percentCorrect);
+
         int randomNum;  //Int to hold the random number generated
-        if (SS.GetTotalScore() >= 66)
+        if (percentCorrect >= 66)
         {
             randomNum = Random.Range(0, recipeNameBankBestWords.Count);
-            generatedRecipeName = recipeNameBankBestWords[randomNum] + " " + manageUI.chefsRecipeList[0].text + " Juice";
+            generatedRecipeName = recipeNameBankBestWords[randomNum] + " " + generatedRecipe[0] + " Juice";
         }
-        else if(SS.GetTotalScore() >= 33)
+        else if(percentCorrect >= 33)
         {
             randomNum = Random.Range(0, recipeNameBankMiddleWords.Count);
-            generatedRecipeName = recipeNameBankMiddleWords[randomNum] + " " + manageUI.chefsRecipeList[0].text + " Juice";
+            generatedRecipeName = recipeNameBankMiddleWords[randomNum] + " " + generatedRecipe[0] + " Juice";
         }
         else
         {
             randomNum = Random.Range(0, recipeNameBankBadWords.Count);
-            generatedRecipeName = recipeNameBankBadWords[randomNum] + " " + manageUI.chefsRecipeList[0].text + " Juice";
+            generatedRecipeName = recipeNameBankBadWords[randomNum] + " " + generatedRecipe[0] + " Juice";
         }
 
         //generatedRecipeName = "This needs implementation";
