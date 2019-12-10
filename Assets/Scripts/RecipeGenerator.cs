@@ -81,30 +81,38 @@ public class RecipeGenerator : MonoBehaviour
     {
         List<string> ingredients = new List<string>();
 
-        //Randomly pick the first ingredient, making sure it is one of the ingredients on the recipe
-        int index = Random.Range(0, ingredientCount);
-        string firstIngredient = ingredientList[index].Split('-')[0];
-
-        while (!generatedRecipe.Contains(firstIngredient))
-        {
-            index = Random.Range(0, ingredientCount);
-            firstIngredient = ingredientList[index].Split('-')[0];
-        }
-
-        ingredients.Add(firstIngredient);
+        //Get correct ingredient, and where to put it in the list
+        string firstIngredient = generatedRecipe[chosenIngredients.Count];
+        int index = Random.Range(0, 4);
 
         //Get the list of attributes associated with the chosen ingredient
-        string[] attributes = ingredientList[index].Split('-')[1].Split(' ');
+        //string[] attributes = ingredientList[index].Split('-')[1].Split(' ');
 
+        //variable that makes sure we don't get stuck in while loop, for debugging purposes since unity crashed when while loop never ends
         int count = 0;
 
-        while(ingredients.Count < 4 && count < 200)
+        while (ingredients.Count < 4 && count < 200)
         {
-            int newIndex = Random.Range(0, ingredientCount);
+            //Place the correct ingredient if necessary
+            if (ingredients.Count == index)
+            {
+                Debug.Log(firstIngredient + " BEING ADDED");
+                ingredients.Add(firstIngredient);
+            }
+
+            //If not, pick another random ingredient to add to the list
+            else
+            {
+                int newIndex = Random.Range(0, ingredientCount);
+                string newIngredient = ingredientList[newIndex].Split('-')[0];
+
+                if ((generatedRecipe.Contains(newIngredient) && ingredients.Contains(newIngredient)) == false)
+                    ingredients.Add(newIngredient);
+            }
 
             //Get ingredient and the list of attributes pertaining to the new ingredient
-            string newIngredient = ingredientList[newIndex].Split('-')[0];
-            string[] newAttributes = ingredientList[newIndex].Split('-')[1].Split(' ');
+
+            //string[] newAttributes = ingredientList[newIndex].Split('-')[1].Split(' ');
 
             /////////////////////
             ///
@@ -136,7 +144,6 @@ public class RecipeGenerator : MonoBehaviour
             //}
 
             count++;
-            ingredients.Add(newIngredient);
         }
 
         return ingredients;
