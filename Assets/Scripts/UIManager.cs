@@ -167,6 +167,10 @@ public class UIManager : MonoBehaviour
         // Update the score screen with all the correct juice names
         for (int i = 0; i < SS.juiceNames.Count; i++)
         {
+            if (i == scoredJuicesList.Count)
+            {
+                break;
+            }
             scoredJuicesList[i].text = SS.juiceNames[i];
             scoredJuicesScoreList[i].text = SS.juiceScores[i].ToString();
         }
