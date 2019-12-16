@@ -197,7 +197,7 @@ public class UIManager : MonoBehaviour
             {
                 if (SS.juicePercentages.Count > i)
                 {
-                    Debug.Log(i);
+                    
                     if (SS.juicePercentages[i] > .33f * k)
                     {
                         starSpritesScoreScreen[starNum + k].enabled = true;
@@ -215,15 +215,15 @@ public class UIManager : MonoBehaviour
             {
                 if (SS.juicePercentages[i] < .33f)
                 {
-                    resultSpritesScoreScreen[i].sprite = resultSprites[i];
+                    resultSpritesScoreScreen[i].sprite = resultSprites[0];
                 }
                 else if (SS.juicePercentages[i] < .66f)
                 {
-                    resultSpritesScoreScreen[i].sprite = resultSprites[i];
+                    resultSpritesScoreScreen[i].sprite = resultSprites[1];
                 }
                 else
                 {
-                    resultSpritesScoreScreen[i].sprite = resultSprites[i];
+                    resultSpritesScoreScreen[i].sprite = resultSprites[2];
                 }
 
             }
