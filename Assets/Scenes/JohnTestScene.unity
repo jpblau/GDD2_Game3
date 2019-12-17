@@ -762,6 +762,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 366179788cb88d548a16ee60d65d8932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ingredientsListText: {fileID: 4900000, guid: c101cd53659ed1749ac8d88bf772a21d, type: 3}
+  nameBankText: {fileID: 4900000, guid: 9a2921e4bf764024a87467665f642d55, type: 3}
   SS: {fileID: 4428642097644368973}
 --- !u!4 &1652571981
 Transform:
